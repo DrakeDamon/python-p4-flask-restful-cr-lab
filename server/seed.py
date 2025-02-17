@@ -4,7 +4,10 @@ from app import app
 from models import db, Plant
 
 with app.app_context():
+    # Create all database tables
+    db.create_all()
 
+    # Clear existing data
     Plant.query.delete()
 
     aloe = Plant(
